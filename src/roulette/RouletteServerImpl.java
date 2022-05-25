@@ -5,23 +5,34 @@ import java.util.List;
 
 public class RouletteServerImpl implements IRouletteServer {
 
-    List<String> colorArray = List.of("green", "black", "red", "black", "red", "black", "red", "black", "red", "black", "red",
+    private final List<String> colorArray = List.of("green", "black", "red", "black", "red", "black", "red", "black", "red", "black", "red",
             "black", "red", "black", "red", "black", "red", "black", "red", "black", "red", "black", "red", "black",
             "red", "black", "red", "black", "red", "black", "red", "black", "red", "black", "red", "black",
             "red");
 
-    int balance = 1000;
-    int sum;
-    int bet;
-    int number;
+    private int balance = 1000;
+    private int bet;
+    private int sum;
+    private int number;
+
 
     @Override
-    public void choiceBet (int b) { //выбор ставки
+    public int getBalance() {
+        return balance;
+    }
+
+    @Override
+    public void choiceBet(int b) {
         bet = b;
     }
 
     @Override
-    public void choiceSum (int s) { //выбор суммы
+    public int getBet() {
+        return bet;
+    }
+
+    @Override
+    public void choiceSum (int s) {
         sum = s;
     }
 
@@ -108,7 +119,9 @@ public class RouletteServerImpl implements IRouletteServer {
                 The bet on red is calculated 2 to 1
                 A bet on a number from 0-36 is calculated 35 to 1
                 The bet on even is calculated 2 to 1
-                The odd bet is calculated 2 to 1""");
+                The odd bet is calculated 2 to 1
+                When choosing information, it requires you to enter the amount,
+                you can enter any value, the amount will not be withdrawn.""");
         }else if (bet == 9) {
             System.out.println("Goodbye ");
             System.exit(0);
