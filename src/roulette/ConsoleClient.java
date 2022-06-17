@@ -16,6 +16,7 @@ public class ConsoleClient {
             if (server.getBet() == 3) {
                 System.out.println("select a number from 0 - 36");
                 server.choiceNumber(scan.nextInt());
+
             }
             server.betting();
         }
